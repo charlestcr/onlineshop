@@ -24,8 +24,7 @@ SECRET_KEY = 'on-i6(v^)@rb08#09u4ly4tgb8t)h@foy!@ui4!s7!o*%rugr('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-ALLOWED_HOSTS = ['charlesonlineshop.herokuapp.com/','http://127.0.0.1']
+ALLOWED_HOSTS =['*'] 
 
 
 # Application definition
