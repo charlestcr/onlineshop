@@ -41,8 +41,8 @@
 
         <br>
         <div class="box-element hidden " id="payment-info">
-            <small>Paypal Options</small>
-            <button id="make-payment">Make Payment</button>
+            <small></small>
+            <button id="make-payment">Sub Order</button>
         </div>
 
 
@@ -56,7 +56,17 @@
             <hr>
             {% for item in items %}
             <div class="cart-row">
-                <div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
+                <div style="flex:2">
+
+                    {% if item.product.image %}
+                    <img class="row-image" src="{{item.product.imageURL}}">
+                    {% else %}
+                    <img class="row-image" src="{% static 'images/placeholder.png' %}">
+                    {% endif %}
+                   
+                
+                
+                </div>
                 <div style="flex:2"><p>{{item.product.name}}</p></div>
                 <div style="flex:1"><p>{{item.product.price|floatformat:2}}$</p></div>
                 <div style="flex:1"><p>*{{item.quantity}}</p></div>
@@ -151,7 +161,7 @@ function submitFormData(){
          })
          .then((data) => {
             console.log('Success',data)
-            alert("Transaction Completed");
+            alert(" Thank You , Order Completed");
             window.location.href ="{% url 'store'  %}"
         
          });
