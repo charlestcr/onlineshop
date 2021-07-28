@@ -31,7 +31,16 @@
 
             {% for item in items %}
             <div class="cart-row">
-                <div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"> </div>
+                <div style="flex:2">
+
+                    {% if item.product.image %}
+                    <img class="row-image" src="{{item.product.imageURL}}">
+                    {% else %}
+                    <img class="row-image" src="{% static 'images/placeholder.png' %}">
+                    {% endif %}
+
+                    
+                </div>
                 <div style="flex:2">{{item.product.name}}</div>
                 <div style="flex:1">{{item.product.price|floatformat:2}}$</div>
                 <div style="flex:1">
