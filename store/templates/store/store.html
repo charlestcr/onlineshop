@@ -8,8 +8,13 @@
     {% for product in products %}
     <div class='col-lg-4'>
         <div class="box-element product">
-          
+            {% if product.image %}
             <img class="thumbnail" src="{{product.imageURL}}">
+            {% else %}
+            <img class="thumbnail" src="{% static 'images/placeholder.png' %}">
+            {% endif %}
+
+          
          
             <h6><strong>{{product.name}}</strong></h6>
             <hr>
